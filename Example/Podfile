@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DropdownButton_Example' do
+  pod 'DropdownButton', :path => '../'
+
+  target 'DropdownButton_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
