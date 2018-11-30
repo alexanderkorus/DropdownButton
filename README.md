@@ -9,7 +9,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![Preview](https://raw.githubusercontent.com/gregttn/GTProgressBar/master/dropdownbutton.gif)
+![Preview](https://raw.githubusercontent.com/alexanderkorus/DropdownButton/master/dropdownbutton.gif)
 
 ## Requirements
 
