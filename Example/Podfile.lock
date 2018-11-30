@@ -1,0 +1,23 @@
+PODS:
+  - DropdownButton (0.1.0):
+    - SnapKit (~> 4.2.0)
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - DropdownButton (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  DropdownButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DropdownButton: 785de2e43c0ce2e2162e638a2b035d75e9c6c0e9
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 46902f6106224796c16459eae7c998fb0cdbdd75
+
+COCOAPODS: 1.6.0.beta.2
