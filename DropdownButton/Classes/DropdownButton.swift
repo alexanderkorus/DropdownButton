@@ -36,6 +36,8 @@ open class DropdownButton: UIButton {
     @IBInspectable public var cellTextAlignment: NSTextAlignment = .center
     @IBInspectable public var selectedRowTextColor: UIColor = .black
     @IBInspectable public var cellTextColor: UIColor = .black
+    @IBInspectable public var animationDuration: Double = 0.9
+    @IBInspectable public var animationCloseDelay: Double = 0.4
     @IBInspectable public var springDamping: CGFloat = 0.4
     @IBInspectable public var initialSpringVelocity: CGFloat = 0.1
     @IBInspectable public var useShadow: Bool = true
@@ -135,7 +137,7 @@ open class DropdownButton: UIButton {
         self.superview?.insertSubview(shadow, belowSubview: self)
         self.superview?.insertSubview(table, belowSubview: self)
         self.isSelected = true
-        UIView.animate(withDuration: 0.9,
+        UIView.animate(withDuration: animationDuration,
                        delay: 0,
                        usingSpringWithDamping: springDamping,
                        initialSpringVelocity: initialSpringVelocity,
@@ -164,8 +166,8 @@ open class DropdownButton: UIButton {
     private func hideList() {
         
         TableWillDisappearCompletion()
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.4,
+        UIView.animate(withDuration: animationDuration,
+                       delay: animationCloseDelay,
                        usingSpringWithDamping: springDamping,
                        initialSpringVelocity: initialSpringVelocity,
                        options: .curveEaseInOut,
