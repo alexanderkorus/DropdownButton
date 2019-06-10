@@ -21,6 +21,7 @@ class View: UIView {
         button.selectedRowColor = .lightGray
         button.selectedRowTextColor = .white
         button.rowHeight = 40
+        button.listHeight = 150
         return button
     }()
     

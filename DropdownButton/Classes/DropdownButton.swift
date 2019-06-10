@@ -45,11 +45,15 @@ open class DropdownButton: UIButton {
             layer.borderColor = borderColor.cgColor
         }
     }
+    
     @IBInspectable public var listHeight: CGFloat = 150 {
         didSet {
             
         }
     }
+    
+    @IBInspectable public var maxListHeight: CGFloat = 300
+    
     @IBInspectable public var borderWidth: CGFloat = 0.0 {
         didSet {
             layer.borderWidth = borderWidth
@@ -61,6 +65,8 @@ open class DropdownButton: UIButton {
             layer.cornerRadius = cornerRadius
         }
     }
+    
+    public var scrollToBottomWhenShow: Bool = false
     
     // Variables
     fileprivate  var tableHeightX: CGFloat = 100
@@ -109,8 +115,9 @@ open class DropdownButton: UIButton {
     private func showList() {
         
         TableWillAppearCompletion()
-        if listHeight > rowHeight * CGFloat( dataArray.count) {
-            self.tableHeightX = rowHeight * CGFloat(dataArray.count)
+        let estimatedListHeight = rowHeight * CGFloat( dataArray.count)
+        if listHeight > estimatedListHeight {
+            self.tableHeightX = estimatedListHeight
         } else {
             self.tableHeightX = listHeight
         }
@@ -131,6 +138,7 @@ open class DropdownButton: UIButton {
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
         table.rowHeight = rowHeight
+        
         
         self.superview?.insertSubview(shadow, belowSubview: self)
         self.superview?.insertSubview(table, belowSubview: self)
@@ -153,7 +161,9 @@ open class DropdownButton: UIButton {
                         self._isListExpanded = true
         },
                        completion: { (finish) -> Void in
-                        
+                        if self.listHeight < estimatedListHeight && self.scrollToBottomWhenShow {
+                            self.table.scrollToRow(at: IndexPath(row: self.dataArray.count-1, section: 0), at: .bottom, animated: true)
+                        }
         })
         
     }

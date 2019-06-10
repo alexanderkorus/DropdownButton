@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     // MARK: - Instance Methods
     func getOptions() {
         
-        let options = ["Option 1", "Option 2", "Option 3"]
-        let ids = [0, 1, 2]
+        let options = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7"]
+        let ids = [0, 1, 2, 3, 4, 5, 6]
         
         self.dropDownButton.setOptions(options: options, optionIds: ids, selectedIndex: 0)
         
