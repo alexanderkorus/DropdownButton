@@ -36,10 +36,12 @@ open class DropdownButton: UIButton {
     @IBInspectable public var cellTextAlignment: NSTextAlignment = .center
     @IBInspectable public var selectedRowTextColor: UIColor = .black
     @IBInspectable public var cellTextColor: UIColor = .black
+    @IBInspectable public var animationDuration: Double = 0.9
+    @IBInspectable public var animationCloseDelay: Double = 0.4
+    @IBInspectable public var springDamping: CGFloat = 0.4
+    @IBInspectable public var initialSpringVelocity: CGFloat = 0.1
+    @IBInspectable public var useShadow: Bool = true
 
-
-    
-    
     @IBInspectable public var borderColor: UIColor =  UIColor.lightGray {
         didSet {
             layer.borderColor = borderColor.cgColor
@@ -143,10 +145,10 @@ open class DropdownButton: UIButton {
         self.superview?.insertSubview(shadow, belowSubview: self)
         self.superview?.insertSubview(table, belowSubview: self)
         self.isSelected = true
-        UIView.animate(withDuration: 0.9,
+        UIView.animate(withDuration: animationDuration,
                        delay: 0,
-                       usingSpringWithDamping: 0.4,
-                       initialSpringVelocity: 0.1,
+                       usingSpringWithDamping: springDamping,
+                       initialSpringVelocity: initialSpringVelocity,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
                         
@@ -157,7 +159,9 @@ open class DropdownButton: UIButton {
                         
                         self.table.alpha = 1
                         self.shadow.frame = self.table.frame
-                        self.shadow.dropShadow()
+                        if self.useShadow {
+                            self.shadow.dropShadow()
+                        }
                         self._isListExpanded = true
         },
                        completion: { (finish) -> Void in
@@ -172,10 +176,10 @@ open class DropdownButton: UIButton {
     private func hideList() {
         
         TableWillDisappearCompletion()
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.4,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 0.1,
+        UIView.animate(withDuration: animationDuration,
+                       delay: animationCloseDelay,
+                       usingSpringWithDamping: springDamping,
+                       initialSpringVelocity: initialSpringVelocity,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
                         self.table.frame = CGRect(x: self.frame.minX,
@@ -222,8 +226,8 @@ open class DropdownButton: UIButton {
         }
         UIView.animate(withDuration: 0.2,
                        delay: 0.1,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 0.1,
+                       usingSpringWithDamping: springDamping,
+                       initialSpringVelocity: initialSpringVelocity,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
                         self.table.frame = CGRect(x: self.frame.minX,
