@@ -22,6 +22,7 @@ class View: UIView {
         button.selectedRowTextColor = .white
         button.rowHeight = 40
         button.listHeight = 150
+        button.useShadow = false
         return button
     }()
     

@@ -1,7 +1,7 @@
 PODS:
-  - DropdownButton (0.1.0):
-    - SnapKit (~> 4.2.0)
-  - SnapKit (4.2.0)
+  - DropdownButton (0.1.1):
+    - SnapKit (~> 5.0.0)
+  - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - DropdownButton (from `../`)
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DropdownButton: 785de2e43c0ce2e2162e638a2b035d75e9c6c0e9
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  DropdownButton: 46000f008fad61db1b148ff866176606083a7c6d
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 46902f6106224796c16459eae7c998fb0cdbdd75
+PODFILE CHECKSUM: 88e1617e4bc4e1b807b665b944c8384cd4ff57dd
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.1

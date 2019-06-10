@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DropdownButton'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A button which open a dropwdown with selectable elements.'
 
 # This description is used to generate tags and improve search results.
@@ -38,7 +38,7 @@ A customizable button which open a dropwdown with selectable elements. Based on 
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SnapKit', '~> 4.2.0'
+  s.dependency 'SnapKit', '~> 5.0.0'
   s.swift_version = '4.2'
 
 end
